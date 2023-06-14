@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+
 class ProductController extends Controller
 {
     
@@ -12,6 +13,8 @@ class ProductController extends Controller
     public function index()
 
     {
+
+
         $products = Product::inRandomOrder()->take(15)->get();
 
         
@@ -22,7 +25,7 @@ class ProductController extends Controller
     public  function show($slug)
     {
 
-        $product = Product::where('slug',$slug)->first();
+        $product = Product::where('slug',$slug)->firstOrFail();
 
 
         return view('products.show')->with('product', $product);

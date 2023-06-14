@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,14 @@ Route::get('/', function () {
 
 /**Route pour les produits */
 
-Route::get('/boutique',[ProductController::class, 'index']);
+Route::get('/boutique',[ProductController::class, 'index'])->name('products.index');
 
 
 Route::get('/boutique/{slug}',[ProductController::class, 'show'])->name('products.show');
+
+
+
+
+/* Route pour les panier */
+
+Route::post('/panier/ajouter', [CartController::class, 'store'])->name('cart.store');
