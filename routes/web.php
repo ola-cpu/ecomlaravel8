@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,12 @@ Route::get('/boutique/{slug}',[ProductController::class, 'show'])->name('product
 /* Route pour les panier */
 
 Route::post('/panier/ajouter', [CartController::class, 'store'])->name('cart.store');
+
+Route::get('/panier', [CartController::class, 'index'])->name('cart.index');
+
+Route::delete('/panier/{rowId}', [CartController::class, 'destroy'])->name('cart.destroy');
+
+Route::get('/vider', function (){
+
+    Cart::destroy();
+});

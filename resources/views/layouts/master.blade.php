@@ -12,6 +12,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -218,7 +219,7 @@
   <header class="border-bottom lh-1 py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="link-secondary  badge badge-pill badge-dark" href="#">Panier {{ Cart::count() }} </a>
+        <a class="link-secondary  badge badge-pill badge-dark" href="{{ route('cart.index') }}">Panier {{ Cart::count() }} </a>
       </div>
       <div class="col-4 text-center">
         <a class="blog-header-logo text-body-emphasis text-decoration-none" href="{{ route('products.index') }}">BOUTIQUE</a>
